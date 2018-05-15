@@ -4,16 +4,16 @@ import './App.css';
 import FoodItem from './FoodItem';
 
 class App extends Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
     this.state = {
       favoriteFoods: ['lettuce', 'carrots', 'beets', 'beans', 'air']
     }
   }
   render() {
 
-    const favFoods = this.state.favoriteFoods.map( item, i => {
-        return <FoodItem foodItem={item}/>
+    const favFoods = this.state.favoriteFoods.map( (element, index) => {
+        return <FoodItem   key={index} foodItem={element}/>
     })
 
     return (

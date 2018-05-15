@@ -3,7 +3,8 @@ import logo from './logo.svg';
 import './App.css';
 
 class App extends Component {
-  constuctor(props) {
+  constructor(props) {
+    super(props);
 
     this.state = {
       myName: 'Joe'
@@ -12,7 +13,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        My name is { this.state.myName }
+        My name is { this.state.myName}
       </div>
     );
   }
