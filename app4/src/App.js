@@ -7,14 +7,18 @@ class App extends Component {
     super(props);
     this.state = {
       cars: []
-    }
+    };
+ this.handleCars = this.handleCars.bind(this);
+  }
+  handleCars(event){
+    this.setState({ cars: event.target.value})
   }
 
-  getCars() {
+  componentDidMount(){
     axios.get('https://joes-autos.herokuapp.com/api/vehicles')
-    .then(res => {
+    .then(response => {
       this.setState({
-        cars: res
+        cars: response.data
       })
     })
   }
@@ -22,8 +26,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <button onClick={this.getCars}>Get cars</button>
-        {this.state.cars}
+        <button onClick={this.handleCars}>Get cars</button>
       </div>
     );
   }
